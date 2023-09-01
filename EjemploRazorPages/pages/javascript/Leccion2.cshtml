@@ -1,0 +1,37 @@
+﻿@page
+@model EjemploRazorPages.pages.javascript.Leccion2Model
+@{
+}
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+
+    <body>
+        <h1>Leccion 2. Objetos (DOM) y eventos</h1>
+
+        <form>
+            <input id="btnPresioname" type="button" value="Presioname" />
+            <input type="button" value="Cambiar Color" />
+        </form>
+
+        <script>
+           let obj = document.querySelector("h1")
+           obj.textContent="Hola";
+           obj.style.color="red";
+
+           let btn = document.getElementById("btnPresioname");
+           btn.style.backgroundColor="blue";
+
+           //querySelector
+           //querySelectorAll
+           //getElementById
+           //getElementByclassName
+           //getElementByTagName
+
+        </script>
+        
+    </body>
+</html>
