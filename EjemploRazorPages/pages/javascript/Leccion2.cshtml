@@ -14,13 +14,11 @@
 
         <form>
             <input id="btnPresioname" type="button" value="Presioname" />
-            <input type="button" value="Cambiar Color" />
+            <input id="btnColor" type="button" value="Cambiar Color" />
         </form>
 
         <script>
-           let obj = document.querySelector("h1")
-           obj.textContent="Hola";
-           obj.style.color="red";
+          
 
            let btn = document.getElementById("btnPresioname");
            btn.style.backgroundColor="blue";
@@ -30,6 +28,21 @@
            //getElementById
            //getElementByclassName
            //getElementByTagName
+
+           let btn = document.getElementById("btnPresioname");
+
+           function mostrarMensaje()
+           {
+               alert("Hiciste clic")
+           }
+           btn.addEventListener("click",mostrarMensaje);
+
+           document.querySelector("#btnColor").addEventListener("click",function(){
+
+            let obj = document.querySelector("h1")
+            obj.textContent = "Hola";
+            obj.style.color = "red";
+           });
 
         </script>
         

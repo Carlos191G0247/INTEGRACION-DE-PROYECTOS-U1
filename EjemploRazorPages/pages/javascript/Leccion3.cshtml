@@ -1,0 +1,30 @@
+﻿@page
+@model EjemploRazorPages.pages.javascript.Leccion3Model
+@{
+}
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>Leccion 3. Programacion de eventos</h1>
+
+        <form>
+            <input type="button" value="Boton 1" />
+            <input type="button" value="Boton 2" />
+            <input type="button" value="Boton 3" />
+
+            <p>Haz click en un boton</p>
+
+        </form>
+        <script>
+            document.querySelector("form").addEventListener("click", function(e){
+                if(e.target.tagName=="INPUT")
+                {
+                    alert("Hola")
+                }
+                alert("Hola");
+            }
+        </script>
+    </body>
+</html>
