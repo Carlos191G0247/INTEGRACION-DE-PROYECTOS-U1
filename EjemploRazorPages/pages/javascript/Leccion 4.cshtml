@@ -1,0 +1,60 @@
+﻿@page
+@model EjemploRazorPages.pages.javascript.Leccion_4Model
+@{
+}
+<html>
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+        <h1>Leccion 4. Creacion de objetos con DOM</h1>
+
+        <form>
+            <label>Actividad:</label>
+            <input id="actividad" type="text" /><input id="btnAgregar" type="button"  value="Agregar"/>
+            <select size="10"></select>
+        </form>
+        <script>
+            //createElement()
+            //createTextNode
+            //createCooment
+
+            //let input = document.createElement("INPUT")
+            //input.value="Hola";
+            //input.type="button";
+
+            //document.querySelector("form").append(input);
+
+            //Buscar el select
+            const select = document.querySelector("select");
+            //Buscar el cuadro de texto
+            const textbox = document.querySelector("#actividad");
+            //crear listener click al boton
+            document.getElementById("btnAgregar").addEventListener("click", function(){
+                //validar que no este vacio
+
+                if  (textbox.value)
+                {
+                    //Crear option
+                    let option = document.createElement("OPTION");
+                    //Colocar el texto en option
+                    option.textContent=textbox.value;
+                    //Agregar el option al select
+                    select.append(option);
+                    //Borrar eñ texto del cuadro de texto
+                    textbox.value=null;
+                    textbox.style.outlineColor = "none";
+                }
+                else
+                {
+                    //Solo funciona para form
+                    textbox.style.outlineColor="red";
+                    textbox.setCustomValidity("Escriba la actividad para continuar")
+                    textbox.reportValidity();
+                }
+
+            });
+        </script>
+    </body>
+</html>

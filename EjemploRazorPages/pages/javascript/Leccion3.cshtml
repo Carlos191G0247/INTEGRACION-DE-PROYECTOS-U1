@@ -18,13 +18,15 @@
 
         </form>
         <script>
+            const parrafo = document .querySelector("form p")
             document.querySelector("form").addEventListener("click", function(e){
                 if(e.target.tagName=="INPUT")
                 {
-                    alert("Hola")
+                    //busca la etiqueta p
+                    parrafo.textContent = `Hiciste clic en el ${e.target.value}`;
                 }
-                alert("Hola");
-            }
+                
+            });
         </script>
     </body>
 </html>
