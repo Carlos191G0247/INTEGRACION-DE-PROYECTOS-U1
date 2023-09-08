@@ -25,7 +25,7 @@
             const textbox = form.querySelector("#texto");
             const selects = form.getElementsByTagName("SELECT");
             
-            form.addEventListener("click", function{event){
+            form.addEventListener("click", function(event){
             if (event.target.type && event.target.type == "button") {
                     let btn = event.target.value;
                     if(btn =="+" && textbox.value){
@@ -35,7 +35,16 @@
                         //selects[0].add(textbox.value);
                         textbox.value="";
                     }
+                    else if(btn==">>" && selects[0].selectedIndex>=0){
+                      let sel = selects[0].options[selects[0].selectedIndex];
+                      selects[1].add(sel);
+                    }
+                    else if(btn=="<<" && selects[1].selectedIndex>=0){
+                      let sel = selects[1].options[selects[1].selectedIndex];
+                      selects[0].add(sel);
+                    }
                 }
+                
             });
         </script>
     </body>
