@@ -5,17 +5,31 @@
 <html>
     <head>
         <title></title>
+        <style>
+            table{
+                width:100%;
+                margin:auto;
+                border:1px solid black;
+                border-collapse:collapse;
+            }
+            td,th{
+                border:1px solid black;
+
+                padding:5px;
+            }
+        </style>
     </head>
     <body>
         <h1>Leccion 7. Tablas con DOM</h1>
-
+        @*//patern//*@
         <form>
+            
             <label>Num. Control</label>
-            <input type="text" /><br />
+            <input type="text" name="numControl" required @*pattern="\d\d1\w\w\d\d\d"*@ /><br />
             <label>Nombre:</label>
-            <input type="text" /><br />
+            <input type="text" name="nombre" required /><br />
 
-            <input type="button" value="Agregar" />
+            <input id="btnAgregar" type="button" value="Agregar" />
         </form>
 
         <table>
@@ -26,5 +40,32 @@
                </tr>
            </thead>
         </table>
+        <script>
+            const tabla = document.querySelector("table tbody");
+            const form = document.querySelector("form");
+
+            form.querySelector("#btnAgregar").addEventListener("click",
+            function()
+            {
+                let numControl = form.elements.numControl.value;
+                let nombre = form.elements.nombre.value;
+
+                if(numControl && nombre){
+                    let tr = tabla.insertRow();
+
+                    let td1 = tr.insertCell();
+                    td1.textContent = numControl;
+
+                    tr.insertCell().textContent= nombre;
+
+                    form.reset();
+                }
+                else{
+                    form.reportValidity();
+                }
+ 
+            }
+            );
+        </script>
     </body>
 </html>
